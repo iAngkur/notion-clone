@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Heading() {
     return (
@@ -11,9 +11,11 @@ export default function Heading() {
                 Notion is the connected workspace where <br />
                 better, faster work happens.
             </h3>
-            <Button>
-                Enter Notion
-                <ArrowRight className='h-4 w-4 ml-2' />
+            <Button asChild>
+                <Link to="dashboard" replace>
+                    Enter Notion
+                    <ArrowRight className='h-4 w-4 ml-2' />
+                </Link>
             </Button>
         </div>
 

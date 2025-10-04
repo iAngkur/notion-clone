@@ -1,10 +1,14 @@
+import React from "react"
 import { Route, Routes } from "react-router-dom"
-import RootLayout from "./layouts/rootlayout/RootLayout"
-import MarketingPage from "./pages/marketing/MarketingPage"
-import About from "./pages/About"
-import Login from "./pages/auth/login/Login"
-import Register from "./pages/auth/register/Register"
-import MarketingLayout from "./layouts/marketingLayout/MarketingLayout"
+
+const MarketingLayout = React.lazy(() => import("./layouts/marketingLayout/MarketingLayout"));
+const MarketingPage = React.lazy(() => import("./pages/marketing/MarketingPage"));
+const Login = React.lazy(() => import("./pages/auth/login/Login"));
+const Register = React.lazy(() => import("./pages/auth/register/Register"));
+
+const DashboardLayout = React.lazy(() => import("./layouts/dashboardLayout/DashboardLayout"));
+const About = React.lazy(() => import("./pages/About"));
+
 
 function App() {
   return (
@@ -13,9 +17,10 @@ function App() {
         <Route path="/" element={<MarketingLayout />}>
           <Route index element={<MarketingPage />} />
           <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-        <Route path="/dashboard" element={<RootLayout />}>
+        <Route path="/dashboard" element={<DashboardLayout />}>
           <Route path="about" element={<About />} />
         </Route>
       </Routes>
